@@ -1,0 +1,3 @@
+配置文件的位置为默认配置文件的位置
+1、springmvc的配置文件默认在/webapp/WEB-INF路径下，而且命名上有要求，web.xml中配置名称为springDispatcherServlet，则文件的名称为springDispatcherServlet-servlet.xml
+2、log4j的配置文件默认在类路径下不需要进行配置
