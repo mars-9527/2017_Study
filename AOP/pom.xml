@@ -1,13 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-	<groupId>cn.helloan</groupId>
-	<artifactId>SSM</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<relativePath>SSM</relativePath>
-  </parent>
+  <version>0.0.1-SNAPSHOT</version>
   <groupId>net.cloudsun</groupId>
-  <artifactId>crud-ssm</artifactId>
+  <artifactId>AOP</artifactId>
   <packaging>war</packaging>
   <properties>
   	<org.springframework-version>3.2.0.RELEASE</org.springframework-version>
@@ -24,6 +19,12 @@
 		<artifactId>junit</artifactId>
 		<version>4.7</version>
 		<scope>test</scope>
+	</dependency>
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>servlet-api</artifactId>
+	    <version>2.5</version>
+	    <scope>provided</scope>
 	</dependency>
   <!-- spring核心包start --> 
 	<dependency>
