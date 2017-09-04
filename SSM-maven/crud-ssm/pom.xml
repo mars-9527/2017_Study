@@ -2,9 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
 	<groupId>cn.helloan</groupId>
-	<artifactId>SSM</artifactId>
+	<artifactId>SSM-maven</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<relativePath>SSM</relativePath>
+	<relativePath></relativePath>
   </parent>
   <groupId>net.cloudsun</groupId>
   <artifactId>crud-ssm</artifactId>
