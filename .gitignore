@@ -6,8 +6,8 @@
 .metadata/
 RemoteSystemsTempFiles/
 /*/target/
-/*/.settings
-/*/*/.settings
+/*/.settings/
+/*/*/.settings/
 /*/*/target/
 .recommenders
 /temp/
