@@ -1,5 +1,4 @@
 # ignore these files
-.settings
 *.class
 .classpath
 .project
@@ -7,8 +6,10 @@
 .metadata/
 RemoteSystemsTempFiles/
 /*/target/
+/*/.settings
+/*/*/.settings
 /*/*/target/
-/.recommenders/
+.recommenders
 /temp/
 /logs/
 
