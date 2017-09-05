@@ -8,4 +8,8 @@
 RemoteSystemsTempFiles/
 /*/target/
 /*/*/target/
+/.recommenders/
+/temp/
+/logs/
+
 

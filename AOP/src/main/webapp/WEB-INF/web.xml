@@ -3,7 +3,8 @@
   <display-name>Archetype Created Web Application</display-name>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:/context/spring-root.xml</param-value>
+    <param-value>classpath:/context/spring-root.xml,
+    classpath:/context/spring-mvc.xml</param-value>
   </context-param>
   <context-param>
     <param-name>log4jConfigLocation</param-name>
@@ -26,7 +27,7 @@
     <init-param>
       <description>spring mvc 配置文件</description>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:/context/spring-mvc.xml</param-value>
+      <param-value></param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
