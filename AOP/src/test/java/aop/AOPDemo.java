@@ -7,12 +7,12 @@ import aop.entity.User;
 import aop.service.UserService;
 
 public class AOPDemo {
-	
+
 	public static void main(String[] args) {
 		User user = new User();
 		user.setName("张三");
 		user.setPassword("1234");
-		
+
 		ApplicationContext ac = new ClassPathXmlApplicationContext("AOP.xml");
 		UserService service = (UserService) ac.getBean("userServiceImpl");
 		service.add(user);
@@ -21,6 +21,7 @@ public class AOPDemo {
 		System.out.println();
 		service.update(1);
 		service.getUserInfo(1);
+		((ClassPathXmlApplicationContext) ac).close();
+
 	}
 }
-
