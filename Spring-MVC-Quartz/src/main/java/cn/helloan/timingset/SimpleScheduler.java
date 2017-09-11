@@ -1,4 +1,4 @@
-package cn.helloan.test;
+package cn.helloan.timingset;
 
 import java.text.ParseException;  
 import java.text.SimpleDateFormat;  

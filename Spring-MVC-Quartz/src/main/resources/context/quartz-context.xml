@@ -5,30 +5,58 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<context:annotation-config /> 
-	<bean id="QuartzFactoryBean"
-		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-		<property name="triggers">
-			<list>
-				<ref bean="capacityDataPublisherJobTrigger" />
-			</list>
-		</property>
-	</bean>
 
-	<bean id="capacityDataPublisherJob" class="cn.helloan.quartz.QuartzTask"
-	init-method="run">
-	</bean>
+	<bean id="quartzTaskJob" class="cn.helloan.quartz.QuartzTask" init-method="run"></bean>
 
-	<bean id="capacityDataPublisherJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
-		<property name="jobDetail" ref="capacityDataPublisherJobDetail" />
+	<bean id="quartzTaskJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="quartzTaskJob" />
+		<property name="targetMethod" value="run" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="quartzTaskJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="quartzTaskJobDetail" />
 		<property name="cronExpression">
 			<value>* * * * * ?</value>
 		</property>
 	</bean>
-	<bean id="capacityDataPublisherJobDetail"
-		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="capacityDataPublisherJob" />
-		<property name="targetMethod" value="run" />
-		<property name="concurrent" value="false" />
+	
+	<!-- jobTwo --> 
+	<bean id = "jobOne"   class = "cn.helloan.quartz.concurrent.JobOne"></bean >   
+	<bean id = "jobOneDetail"   class ="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" >   
+        <property   name = "targetObject"   ref = "jobOne" />   
+        <property   name = "targetMethod"   value = "execute" />   
+        <property   name = "concurrent"   value = "false"   />   
+    </bean >   
+    <bean  id = "jobOneSimpleTrigger"   class ="org.springframework.scheduling.quartz.SimpleTriggerBean" >   
+        <property   name = "jobDetail"   ref = "jobOneDetail"   />   
+        <property   name = "startDelay" value="0">  </property >   
+        <property   name = "repeatInterval" value="1000" > </property>   
+    </bean >   
+    
+    <!-- jobTwo -->   
+    <bean  id = "jobTwo"  class = "cn.helloan.quartz.concurrent.JobTwo"> </bean >   
+    <bean  id = "jobTwoDetail"   class ="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" >   
+        <property name = "targetObject"  ref = "jobTwo" />   
+        <property   name = "targetMethod"  value = "execute" />   
+        <property   name = "concurrent"   value = "true"   />   
+    </bean >   
+    <bean id = "jobTwoSimpleTrigger"   class ="org.springframework.scheduling.quartz.SimpleTriggerBean" >   
+        <property   name = "jobDetail"   ref = "jobTwoDetail"   />   
+        <property   name = "startDelay" value="0">  </property >   
+        <property   name = "repeatInterval" value="1000"  > </property >   
+    </bean >   
+	
+	<bean id="QuartzFactoryBean"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!-- <ref bean="quartzTaskJobTrigger" /> -->
+				<ref   local = "jobOneSimpleTrigger" />   
+                <ref   local = "jobTwoSimpleTrigger" />   
+			</list>
+		</property>
 	</bean>
 
 </beans>
