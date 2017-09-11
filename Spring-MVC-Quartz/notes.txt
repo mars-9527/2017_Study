@@ -1,3 +1,4 @@
 1、简单quartz的配置
 2、设定具体时间触发的定时任务（例如定时发送短信）包：cn.helloan.timingset，main方法执行
 3、定时任务并发执行堵塞处理配置 包：cn.helloan.quartz.concurrent，及quartz-context.xml配置
+	JobDetail的concurrent属性配置的使用：默认为true，任务并发执行;配置为false,不允许任务并发执行。

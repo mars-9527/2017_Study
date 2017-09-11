@@ -27,8 +27,12 @@
 	<bean id = "jobOneDetail"   class ="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" >   
         <property   name = "targetObject"   ref = "jobOne" />   
         <property   name = "targetMethod"   value = "execute" />   
-        <property   name = "concurrent"   value = "false"   />   
+        <property   name = "concurrent"   value = "true"   />   
     </bean >   
+    <!-- 
+    当jobOne的concurrent为true时： （JobOne并发执行，到这里所有任务阻塞没有信息输出，可以看出默认有10个线程，都被JobOne占用
+    当jobOne的concurrent为false时： JobOne不并发执行，JobTwo不会被阻塞
+     --> 
     <bean  id = "jobOneSimpleTrigger"   class ="org.springframework.scheduling.quartz.SimpleTriggerBean" >   
         <property   name = "jobDetail"   ref = "jobOneDetail"   />   
         <property   name = "startDelay" value="0">  </property >   
