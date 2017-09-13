@@ -5,8 +5,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
    <modules>
-  	<module>crud-ssm</module>
   	<module>crud-ssm-defaultConfig</module>
   	<module>spring-mybatis</module>
+  	<module>crud-ssm</module>
   </modules>
 </project>
