@@ -25,7 +25,7 @@ import com.thinkgem.jeesite.test.test.service.test.TestUserService;
 /**
  * 测试Controller
  * @author Mars9527
- * @version 2017-09-15
+ * @version 2017-09-25
  */
 @Controller
 @RequestMapping(value = "${adminPath}/test/test/testUser")

@@ -6,10 +6,18 @@
 		a.id AS "id",
 		a.name AS "name",
 		a.age AS "age",
-		a.job AS "job"
+		a.job AS "job",
+		a.del_flag AS "delFlag",
+		a.office_id AS "office.id",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		o6.name AS "office.name"
 	</sql>
 	
 	<sql id="testUserJoins">
+		LEFT JOIN sys_office o6 ON o6.id = a.office_id
 	</sql>
     
 	<select id="get" resultType="TestUser">
@@ -26,12 +34,15 @@
 		FROM test_user a
 		<include refid="testUserJoins"/>
 		<where>
-			
+			a.del_flag = #{DEL_FLAG_NORMAL}
 			<if test="name != null and name != ''">
 				AND a.name LIKE 
 					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
 					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
 					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="age != null and age != ''">
+				AND a.age = #{age}
 			</if>
 		</where>
 		<choose>
@@ -39,6 +50,7 @@
 				ORDER BY ${page.orderBy}
 			</when>
 			<otherwise>
+				ORDER BY a.update_date DESC
 			</otherwise>
 		</choose>
 	</select>
@@ -49,13 +61,14 @@
 		FROM test_user a
 		<include refid="testUserJoins"/>
 		<where>
-			
+			a.del_flag = #{DEL_FLAG_NORMAL}
 		</where>		
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
 				ORDER BY ${page.orderBy}
 			</when>
 			<otherwise>
+				ORDER BY a.update_date DESC
 			</otherwise>
 		</choose>
 	</select>
@@ -65,12 +78,24 @@
 			id,
 			name,
 			age,
-			job
+			job,
+			del_flag,
+			office_id,
+			create_by,
+			create_date,
+			update_by,
+			update_date
 		) VALUES (
 			#{id},
 			#{name},
 			#{age},
-			#{job}
+			#{job},
+			#{delFlag},
+			#{office.id},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate}
 		)
 	</insert>
 	
@@ -78,12 +103,16 @@
 		UPDATE test_user SET 	
 			name = #{name},
 			age = #{age},
-			job = #{job}
+			job = #{job},
+			office_id = #{office.id},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate}
 		WHERE id = #{id}
 	</update>
 	
 	<update id="delete">
-		DELETE FROM test_user
+		UPDATE test_user SET 
+			del_flag = #{DEL_FLAG_DELETE}
 		WHERE id = #{id}
 	</update>
 	

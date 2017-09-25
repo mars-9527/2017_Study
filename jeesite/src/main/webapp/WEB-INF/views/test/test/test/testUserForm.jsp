@@ -54,6 +54,13 @@
 				<span class="help-inline"><font color="red">*</font> </span>
 			</div>
 		</div>
+		<div class="control-group">
+			<label class="control-label">归属部门：</label>
+			<div class="controls">
+				<sys:treeselect id="office" name="office.id" value="${testUser.office.id}" labelName="office.name" labelValue="${testUser.office.name}"
+					title="部门" url="/sys/office/treeData?type=2" cssClass="" allowClear="true" notAllowSelectParent="true"/>
+			</div>
+		</div>
 		<div class="form-actions">
 			<shiro:hasPermission name="test:test:testUser:edit"><input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;</shiro:hasPermission>
 			<input id="btnCancel" class="btn" type="button" value="返 回" onclick="history.go(-1)"/>

@@ -10,7 +10,7 @@ import com.thinkgem.jeesite.common.persistence.DataEntity;
 /**
  * 测试Entity
  * @author Mars9527
- * @version 2017-09-15
+ * @version 2017-09-25
  */
 public class TestUser extends DataEntity<TestUser> {
 	
@@ -18,6 +18,7 @@ public class TestUser extends DataEntity<TestUser> {
 	private String name;		// name
 	private String age;		// age
 	private String job;		// job
+	private String office;		// 归属部门
 	
 	public TestUser() {
 		super();
@@ -52,6 +53,15 @@ public class TestUser extends DataEntity<TestUser> {
 
 	public void setJob(String job) {
 		this.job = job;
+	}
+	
+	@Length(min=0, max=64, message="归属部门长度必须介于 0 和 64 之间")
+	public String getOffice() {
+		return office;
+	}
+
+	public void setOffice(String office) {
+		this.office = office;
 	}
 	
 }

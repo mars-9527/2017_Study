@@ -28,6 +28,9 @@
 			<li><label>name：</label>
 				<form:input path="name" htmlEscape="false" maxlength="64" class="input-medium"/>
 			</li>
+			<li><label>age：</label>
+				<form:input path="age" htmlEscape="false" maxlength="11" class="input-medium"/>
+			</li>
 			<li class="btns"><input id="btnSubmit" class="btn btn-primary" type="submit" value="查询"/></li>
 			<li class="clearfix"></li>
 		</ul>
@@ -37,6 +40,8 @@
 		<thead>
 			<tr>
 				<th>name</th>
+				<th>age</th>
+				<th>更新时间</th>
 				<shiro:hasPermission name="test:test:testUser:edit"><th>操作</th></shiro:hasPermission>
 			</tr>
 		</thead>
@@ -46,6 +51,12 @@
 				<td><a href="${ctx}/test/test/testUser/form?id=${testUser.id}">
 					${testUser.name}
 				</a></td>
+				<td>
+					${testUser.age}
+				</td>
+				<td>
+					<fmt:formatDate value="${testUser.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+				</td>
 				<shiro:hasPermission name="test:test:testUser:edit"><td>
     				<a href="${ctx}/test/test/testUser/form?id=${testUser.id}">修改</a>
 					<a href="${ctx}/test/test/testUser/delete?id=${testUser.id}" onclick="return confirmx('确认要删除该测试吗？', this.href)">删除</a>

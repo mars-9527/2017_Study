@@ -10,7 +10,7 @@ import com.thinkgem.jeesite.test.test.entity.test.TestUser;
 /**
  * 测试DAO接口
  * @author Mars9527
- * @version 2017-09-15
+ * @version 2017-09-25
  */
 @MyBatisDao
 public interface TestUserDao extends CrudDao<TestUser> {
