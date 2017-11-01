@@ -12,5 +12,15 @@ RemoteSystemsTempFiles/
 .recommenders
 /temp/
 /logs/
+.idea/
+
+# IntelliJ
+*.iml
+/*/*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
 
 
