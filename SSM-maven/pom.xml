@@ -8,5 +8,6 @@
   	<module>crud-ssm-defaultConfig</module>
   	<module>spring-mybatis</module>
   	<module>crud-ssm</module>
+  	<module>crud-ssm-jdk8</module>
   </modules>
 </project>
