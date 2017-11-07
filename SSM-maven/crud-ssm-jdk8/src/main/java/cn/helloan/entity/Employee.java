@@ -1,85 +1,77 @@
 package cn.helloan.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
-public class Employee{
-	
-	private Integer id;
-	 private String  name;
-	 private int     age;
-	 private Date birth;
-	 private Date registerTime;
-	 private double  salary;
-	
-	public Employee() {}
+public class Employee {
 
-	public Integer getId()
-	{
-		return id;
-	}
+    private Integer id;
+    private String name;
+    private int age;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date birth;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date registerTime;
+    private double salary;
 
-	public void setId(Integer id)
-	{
-		this.id = id;
-	}
+    public Employee() {
+    }
 
-	public String getName()
-	{
-		return name;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setName(String name)
-	{
-		this.name = name;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public int getAge()
-	{
-		return age;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setAge(int age)
-	{
-		this.age = age;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Date getBirth()
-	{
-		return birth;
-	}
+    public int getAge() {
+        return age;
+    }
 
-	public void setBirth(Date birth)
-	{
-		this.birth = birth;
-	}
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-	public Date getRegisterTime()
-	{
-		return registerTime;
-	}
+    public Date getBirth() {
+        return birth;
+    }
 
-	public void setRegisterTime(Date registerTime)
-	{
-		this.registerTime = registerTime;
-	}
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
 
-	public double getSalary()
-	{
-		return salary;
-	}
+    public Date getRegisterTime() {
+        return registerTime;
+    }
 
-	public void setSalary(double salary)
-	{
-		this.salary = salary;
-	}
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
+    }
 
-	@Override
-	public String toString()
-	{
-		return "Employee [id=" + id + ", name=" + name + ", age=" + age
-				+ ", birth=" + birth + ", registerTime=" + registerTime
-				+ ", salary=" + salary + "]";
-	}
-	
-	
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + name + ", age=" + age
+                + ", birth=" + birth + ", registerTime=" + registerTime
+                + ", salary=" + salary + "]";
+    }
+
+
 }

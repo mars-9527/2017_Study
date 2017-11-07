@@ -20,12 +20,20 @@ public class EmployeeController {
 	private static final Logger logger = LoggerFactory.getLogger(HelloAction.class);
 	@Resource
 	private EmployeeService employeeService;
-	
-	/**
-	 * 列表查询
-	 * @param map
-	 * @return
-	 */
+
+
+//	@InitBinder
+//	public void initBinder(WebDataBinder binder) {
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//		dateFormat.setLenient(false);
+//		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));   //true:允许输入空值，false:不能为空值
+//	}
+
+		/**
+         * 列表查询
+         * @param map
+         * @return
+         */
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public String getList(Map<String, Object> map){
 		logger.debug("getList 开始执行！");
