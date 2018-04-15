@@ -9,7 +9,7 @@ public class Fund{
 	 private String  name;
 	 private String type;
 	 private Date releaseDate;
-	 private BigDecimal profit;
+	 private BigDecimal profit;//万份收益
 	 private BigDecimal profit7D;
 	 private BigDecimal profit14D;
 	 private BigDecimal profit28D;
