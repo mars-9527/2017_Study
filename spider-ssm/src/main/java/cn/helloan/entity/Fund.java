@@ -7,14 +7,14 @@ public class Fund{
 	
 	 private int id;
 	 private String  name;
-	 private String type;
+	 private String type;//
 	 private Date releaseDate;
 	 private BigDecimal profit;//万份收益
-	 private BigDecimal profit7D;
+	 private BigDecimal profit7D;//7日年化
 	 private BigDecimal profit14D;
 	 private BigDecimal profit28D;
 	 private BigDecimal profit35D;
-	 private BigDecimal profit1M;
+	 private BigDecimal profit1M;//近1月年化
 	 private BigDecimal profit3M;
 	 private BigDecimal profit6M;
 	 private BigDecimal profit1Y;
@@ -22,7 +22,7 @@ public class Fund{
 	 private int int1;
 	 private int int2;
 	 private BigDecimal charge;//手续费
-	 private BigDecimal miniBuy;//手续费
+	 private BigDecimal miniBuy;//起购金额
 	 
 	public Fund() {
 		super();
