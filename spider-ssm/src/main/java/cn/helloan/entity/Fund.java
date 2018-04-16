@@ -1,12 +1,14 @@
 package cn.helloan.entity;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Fund{
 	
 	 private int id;
-	 private String  name;
+	 private String fundNo;
+	 private String  fundName;
 	 private String type;//
 	 private Date releaseDate;
 	 private BigDecimal profit;//万份收益
@@ -19,8 +21,6 @@ public class Fund{
 	 private BigDecimal profit6M;
 	 private BigDecimal profit1Y;
 	 private BigDecimal profitY;
-	 private int int1;
-	 private int int2;
 	 private BigDecimal charge;//手续费
 	 private BigDecimal miniBuy;//起购金额
 	 
@@ -33,11 +33,17 @@ public class Fund{
 	public void setId(int id) {
 		this.id = id;
 	}
+	public String getFundNo() {
+		return fundNo;
+	}
+	public void setFundNo(String fundNo) {
+		this.fundNo = fundNo;
+	}
 	public String getName() {
-		return name;
+		return fundName;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.fundName = name;
 	}
 	public String getType() {
 		return type;
@@ -111,18 +117,6 @@ public class Fund{
 	public void setProfitY(BigDecimal profitY) {
 		this.profitY = profitY;
 	}
-	public int getInt1() {
-		return int1;
-	}
-	public void setInt1(int int1) {
-		this.int1 = int1;
-	}
-	public int getInt2() {
-		return int2;
-	}
-	public void setInt2(int int2) {
-		this.int2 = int2;
-	}
 	public BigDecimal getCharge() {
 		return charge;
 	}
@@ -135,4 +129,14 @@ public class Fund{
 	public void setMiniBuy(BigDecimal miniBuy) {
 		this.miniBuy = miniBuy;
 	}
+	@Override
+	public String toString() {
+		return "Fund [id=" + id + ", fundNo=" + fundNo + ", fundName=" + fundName + ", type=" + type + ", releaseDate="
+				+ new SimpleDateFormat("yyyy-MM-dd").format(releaseDate) + ", profit=" + profit + ", profit7D=" + profit7D + ", profit14D=" + profit14D
+				+ ", profit28D=" + profit28D + ", profit35D=" + profit35D + ", profit1M=" + profit1M + ", profit3M="
+				+ profit3M + ", profit6M=" + profit6M + ", profit1Y=" + profit1Y + ", profitY=" + profitY + ", charge="
+				+ charge + ", miniBuy=" + miniBuy + "]";
+	}
+	
+	
 }

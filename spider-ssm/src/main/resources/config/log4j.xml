@@ -19,9 +19,38 @@
 		<level value="debug" />
 		<appender-ref ref="log.console" />
 	</logger>
-	<logger name="net.cloudsun">
+	
+	
+	
+	<logger name="log4j.logger.com.ibatis">
 		<level value="debug" />
 		<appender-ref ref="log.console" />
 	</logger>
+	<logger name="log4j.logger.com.ibatis.common.jdbc.SimpleDataSource">
+		<level value="debug" />
+		<appender-ref ref="log.console" />
+	</logger>
+	<logger name="log4j.logger.com.ibatis.common.jdbc.ScriptRunner">
+		<level value="debug" />
+		<appender-ref ref="log.console" />
+	</logger>
+	<logger name="log4j.logger.com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate">
+		<level value="debug" />
+		<appender-ref ref="log.console" />
+	</logger>
+	<logger name="log4j.logger.Java.sql.Connection">
+		<level value="debug" />
+		<appender-ref ref="log.console" />
+	</logger>
+	<logger name="log4j.logger.java.sql.Statement">
+		<level value="debug" />
+		<appender-ref ref="log.console" />
+	</logger>
+	<logger name="log4j.logger.java.sql.PreparedStatement">
+		<level value="debug" />
+		<appender-ref ref="log.console" />
+	</logger>
+	
+	
 
 </log4j:configuration>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="cn.helloan.mapper.FundMapper">
+
+	<sql id="fundColumns">
+		a.id AS "id",
+		a.fundName AS "fundName",
+		a.fundNo AS "fundNo",
+		a.releaseDate AS "releaseDate",
+		a.type AS "type",
+		a.profit AS "profit",
+		a.profit7D AS "profit7D",
+		a.profit14D AS "profit14D",
+		a.profit28D AS "profit28D",
+		a.profit35D AS "profit35D",
+		a.profit1M AS "profit1M",
+		a.profit3M AS "profit3M",
+		a.profit6M AS "profit6M",
+		a.profit1Y AS "profit1Y",
+		a.profitY AS "profitY",
+		a.charge AS "charge",
+		a.miniBuy AS "miniBuy"
+	</sql>
+	
+	<sql id="fundJoins">
+	</sql>
+    
+	<select id="get" resultType="Fund">
+		SELECT 
+			<include refid="fundColumns"/>
+		FROM fund a
+		<include refid="fundJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="Fund">
+		SELECT 
+			<include refid="fundColumns"/>
+		FROM fund a
+		<include refid="fundJoins"/>
+		<where>
+			
+			<if test="fundName != null and fundName != ''">
+				AND a.fundName LIKE 
+					<if test="dbName == 'oracle'">'%'||#{fundName}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{fundName}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{fundName},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="Fund">
+		SELECT 
+			<include refid="fundColumns"/>
+		FROM fund a
+		<include refid="fundJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert" parameterType="cn.helloan.entity.Fund"  useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO fund(
+			fundName,
+			fundNo,
+			releaseDate,
+			type,
+			profit,
+			profit7D,
+			profit14D,
+			profit28D,
+			profit35D,
+			profit1M,
+			profit3M,
+			profit6M,
+			profit1Y,
+			profitY,
+			charge,
+			miniBuy
+		) VALUES (
+			#{fundName},
+			#{fundNo},
+			#{releaseDate},
+			#{type},
+			#{profit},
+			#{profit7D},
+			#{profit14D},
+			#{profit28D},
+			#{profit35D},
+			#{profit1M},
+			#{profit3M},
+			#{profit6M},
+			#{profit1Y},
+			#{profitY},
+			#{charge},
+			#{miniBuy}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE fund SET 	
+			fundName = #{fundName},
+			fundNo = #{fundNo},
+			releaseDate = #{releaseDate},
+			type = #{type},
+			profit = #{profit},
+			profit7D = #{profit7D},
+			profit14D = #{profit14D},
+			profit28D = #{profit28D},
+			profit35D = #{profit35D},
+			profit1M = #{profit1M},
+			profit3M = #{profit3M},
+			profit6M = #{profit6M},
+			profit1Y = #{profit1Y},
+			profitY = #{profitY},
+			charge = #{charge},
+			miniBuy = #{miniBuy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM fund
+		WHERE id = #{id}
+	</update>
+	
+	
+</mapper>
