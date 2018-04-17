@@ -1,13 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-	<groupId>cn.helloan</groupId>
-	<artifactId>SSM-maven</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<relativePath></relativePath>
-  </parent>
   <groupId>net.cloudsun</groupId>
-  <artifactId>crud-ssm</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>spider-ssm</artifactId>
   <packaging>war</packaging>
   <properties>
   	<org.springframework-version>3.2.0.RELEASE</org.springframework-version>
