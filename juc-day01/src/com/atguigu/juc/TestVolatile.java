@@ -25,6 +25,7 @@ public class TestVolatile {
 
 class ThreadDemo implements Runnable {
 
+//	private volatile boolean flag = false;
 	private  boolean flag = false;
 
 	@Override
